@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
  
 </head>
-<body>
+<body class="bg-light container-fluid">
     <!--***********************CONTENIDO*****************************************  -->
     <div class="container">
         
@@ -19,7 +19,7 @@
         </div>
       </div>
              <!-- Button para abrir el Modal para Nuevo registro-->
-        <button  type="button" class="btn btn-success mt-2 shadow-lg p-3 mb-3 rounded" data-toggle="modal" data-target="#nuevo">Nuevo</button>
+        <button  type="button" class="btn btn-success mt-2 shadow-lg p-3 mb-3 rounded" data-toggle="modal" data-target="#nuevo"><i class="fas fa-plus-square"></i>Nuevo</button>
           
           <!-- Tabla donde estaran los datos -->
           <table class="table table-hover shadow-lg p-3 mb-5 bg-white rounded">
@@ -37,12 +37,7 @@
                   
                 </tbody>
             </table>
-              
-
     </div>
-    
-   
-
       <!-- ********************************MODAL´S*********************************************** -->
 
       <!-- The Modal para nuevo registro-->
@@ -67,17 +62,17 @@
                 <!-- Nombre -->
                 <div class="form-group">
                         <label for="nombre">Nombre</label>
-                       <input type="text" name="nombre" id="nombre" class="form-control" placeholder="digite el nombre" autocomplete="off">
+                       <input type="text" name="nombre" id="nombre" class="form-control" placeholder="digite el nombre" autocomplete="off" required>
                  </div>
                  <!-- Direccion -->
                  <div class="form-group">
                         <label for="direccion">Direccion</label>
-                        <textarea class="form-control" name="direccion" id="direccion" cols="30" rows="5"></textarea>
+                        <textarea class="form-control" name="direccion" id="direccion" cols="30" rows="5" required></textarea>
                   </div>
                  <!-- Telefono -->
                  <div class="form-group">
                         <label for="telefono">Telefono</label>
-                       <input type="text" name="telefono" id="telefono" class="form-control" placeholder="digite el telefono" >
+                       <input type="text" name="telefono" id="telefono" class="form-control" placeholder="digite el telefono" required>
                  </div>
 
             </div>
@@ -135,7 +130,6 @@
               </div>
             </div>
        </div>
-
 
       <!-- Modal para eliminar registro -->
       <div class="modal" id="eliminar">
@@ -232,8 +226,8 @@
                             +"<td>"+response[i].telefono+"</td>"
                            // +"<td>"+response[i].tipoPersona.tipo+"</td>"
                             +"<td>"
-                                +"<button onclick='cargarRegistro("+response[i].id+")'  type='button' class='btn btn-warning ml-4 mt-1' data-toggle='modal' data-target='#editar'>Editar</button>"
-                                +"<button onclick='setIdPersona("+response[i].id+");' type='button' class='btn btn-danger ml-4 mt-1' data-toggle='modal' data-target='#eliminar'>Eliminar</button>"
+                                +"<button onclick='cargarRegistro("+response[i].id+")'  type='button' class='btn btn-outline-warning ml-4 mt-1' data-toggle='modal' data-target='#editar'><i class='fas fa-edit'></i> Editar</button>"
+                                +"<button onclick='setIdPersona("+response[i].id+");' type='button' class='btn btn-outline-danger ml-4 mt-1' data-toggle='modal' data-target='#eliminar'><i class='fas fa-trash-alt'></i>Eliminar</button>"
                             +"</td>"
                         +"</tr>");
                             
@@ -250,8 +244,8 @@
                     //         +"<td>"+i.direccion+"</td>"
                     //         +"<td>"+i.telefono+"</td>"
                     //         +"<td>"
-                    //             +"<button type='button' class='btn btn-warning ml-4 mt-1' data-toggle='modal' data-target='#editar'>Editar</button>"
-                    //             +"<button type='button' class='btn btn-danger ml-4 mt-1' data-toggle='modal' data-target='#eliminar'>Eliminar</button>"
+                    //             +"<button type='button' class='btn btn-outline-warning ml-4 mt-1' data-toggle='modal' data-target='#editar'>Editar</button>"
+                    //             +"<button type='button' class='btn btn-outline-danger ml-4 mt-1' data-toggle='modal' data-target='#eliminar'>Eliminar</button>"
                     //         +"</td>"
                     //     +"</tr>");
                     // });
