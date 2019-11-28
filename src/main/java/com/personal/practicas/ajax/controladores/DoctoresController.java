@@ -58,12 +58,13 @@ public class DoctoresController {
 	//Update
 	@GetMapping(value = "update/{id}")
 	@ResponseBody
-	public HashMap<String, String> EditarDoctor(@RequestParam int id, @RequestParam String nombre, @RequestParam String direccion) {
+	public HashMap<String, String> EditarDoctor(@RequestParam int id, @RequestParam String nombre, @RequestParam String direccion, @RequestParam int idEspecialidad) {
 		Doctores doc = new  Doctores();
 		HashMap<String, String> hs = new HashMap<String, String>();
 		doc.setId(id);
 		doc.setNombre(nombre);
 		doc.setDireccion(direccion);
+		doc.setEspecialidad(daoDoctor.getEspecialidad(idEspecialidad));
 		
 		try {
 		    daoDoctor.SaveOrUpdate(doc);
