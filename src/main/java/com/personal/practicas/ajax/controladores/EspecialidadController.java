@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +24,14 @@ public class EspecialidadController {
 	@Autowired
 	IEspecialidad iespecialidad;
 	
+	@GetMapping(value = "index")
+	public String mostrar() {
+		return "views/Especialidad/Especialidad";
+	}
+	
 	@GetMapping(value = "all", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
+	@CrossOrigin
 	public List<Especialidad> MostrarDoctores() {
 		return (List<Especialidad>) iespecialidad.findAll();
 	}

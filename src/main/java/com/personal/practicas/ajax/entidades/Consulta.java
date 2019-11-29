@@ -21,19 +21,26 @@ public class Consulta {
 	private String diagnostico;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Doctores idDoctor;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Pacientes paciente;
 	
 	public Consulta(){
 		
 	}
 
-	public Consulta(int id, Date fecha, String sintomas, String diagnostico, Doctores idDoctor) {
+	
+
+	public Consulta(int id, Date fecha, String sintomas, String diagnostico, Doctores idDoctor, Pacientes paciente) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
 		this.sintomas = sintomas;
 		this.diagnostico = diagnostico;
 		this.idDoctor = idDoctor;
+		this.paciente = paciente;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -74,6 +81,15 @@ public class Consulta {
 	public void setIdDoctor(Doctores idDoctor) {
 		this.idDoctor = idDoctor;
 	}
+
+	public Pacientes getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Pacientes paciente) {
+		this.paciente = paciente;
+	}
+	
 	
 	
 }

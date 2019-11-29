@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.personal.practicas.ajax.entidades.Consulta;
 import com.personal.practicas.ajax.entidades.Doctores;
+import com.personal.practicas.ajax.entidades.Pacientes;
 import com.personal.practicas.ajax.repositorios.IConsulta;
 import com.personal.practicas.ajax.repositorios.IDoctores;
+import com.personal.practicas.ajax.repositorios.IPacientes;
 
 @Service
 public class ConsultaService {
@@ -19,6 +21,8 @@ public class ConsultaService {
 	IConsulta iconsulta;
 	@Autowired
 	IDoctores idoctores;
+	@Autowired
+	IPacientes ipacientes;
 	
 	
 	@Transactional
@@ -53,5 +57,8 @@ public class ConsultaService {
 	}
 	public Consulta getIdConsulta(Integer id) {
 		return iconsulta.findById(id).get();
+	}
+	public Pacientes getIdPaciente(Integer id) {
+		return ipacientes.findById(id).get();
 	}
 }

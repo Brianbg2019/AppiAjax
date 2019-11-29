@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Especialidad</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/JS/Especialidad.js"></script>
+</head>
+<body class="bg-light container-fluid">
+
+	<div class="container">
+
+		<div
+			class="shadow p-3 mb-1 bg-white rounded mt-5 border border-success">
+			<div class="row justify-content-center align-items-center">
+				<h2 class="text-success">Listado de Especialidades</h2>
+			</div>
+		</div>
+		<!-- Button para abrir el Modal para Nuevo registro-->
+		<button type="button"
+			class="btn btn-success mt-2 shadow-lg p-3 mb-3 rounded"
+			data-toggle="modal" data-target="#nuevo">
+			<i class="fas fa-plus-square"></i> Nuevo
+		</button>
+
+		<!-- Tabla donde estaran los datos -->
+		<table class="table table-hover shadow-lg p-3 mb-5 bg-white rounded">
+			<thead class="bg-info">
+				<tr>
+					<th>Id</th>
+					<th>Especialidad</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody id="edatos" class="bg-ligth">
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

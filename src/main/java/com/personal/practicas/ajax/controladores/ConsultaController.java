@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,21 +24,28 @@ public class ConsultaController {
 	@Autowired
 	ConsultaService daoConsulta;
 	
+	@GetMapping(value = "index")
+	public String mostrar() {
+		return "views/Consultas/Consultas";
+	}
+	
 	@GetMapping(value = "all")
 	@ResponseBody
+	@CrossOrigin
 	public List<Consulta> listar(){
 		return daoConsulta.listConsulta();
 	}
 	
 	@GetMapping(value = "save")
 	@ResponseBody
-	public HashMap<String, String> guardar(@RequestParam(name = "fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fecha, @RequestParam String sintomas, @RequestParam String diagnostico, @RequestParam int idDoctor){
+	public HashMap<String, String> guardar(@RequestParam(name = "fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fecha, @RequestParam String sintomas, @RequestParam String diagnostico, @RequestParam int idDoctor, @RequestParam int idPaciente){
 		HashMap<String, String> hs = new HashMap<String, String>(); 
 		Consulta con = new Consulta();
 		con.setFecha(fecha);
 		con.setSintomas(sintomas);
 		con.setDiagnostico(diagnostico);
 		con.setIdDoctor(daoConsulta.getIdDorctor(idDoctor));
+		con.setPaciente(daoConsulta.getIdPaciente(idPaciente));
 		try {
 			daoConsulta.saveOrUpdate(con);
 			hs.put("estado", "OK");
@@ -52,7 +60,7 @@ public class ConsultaController {
 	
 	@GetMapping("update/{id}")
 	@ResponseBody
-	public HashMap<String, String> actualizar(@RequestParam int id, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date fecha, @RequestParam String sintomas, @RequestParam String diagnostico, @RequestParam int idDoctor){
+	public HashMap<String, String> actualizar(@RequestParam int id, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date fecha, @RequestParam String sintomas, @RequestParam String diagnostico, @RequestParam int idDoctor, @RequestParam int idPaciente){
 		HashMap<String, String> hs = new HashMap<String, String>();
 		
 		Consulta con = new Consulta();
@@ -60,6 +68,7 @@ public class ConsultaController {
 		con.setFecha(fecha);
 		con.setSintomas(sintomas);
 		con.setIdDoctor(daoConsulta.getIdDorctor(idDoctor));
+		con.setPaciente(daoConsulta.getIdPaciente(idPaciente));
 		
 		try {
 			daoConsulta.saveOrUpdate(con);
